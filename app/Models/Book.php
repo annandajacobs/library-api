@@ -18,7 +18,7 @@ class Book extends Model
         'description',
         'author_id',
         'genre',
-        'published_date',
+        'published_at',
         'total_copies',
         'available_copies',
         'price',
@@ -27,7 +27,7 @@ class Book extends Model
     ];
 
     public function author(): BelongsTo {
-        return $this->belongsTo(AUthor::class);
+        return $this->belongsTo(Author::class);
     }
 
     public function borrowings(): HasMany {

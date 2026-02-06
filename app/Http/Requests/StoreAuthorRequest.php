@@ -24,7 +24,8 @@ class StoreAuthorRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'bio' => 'nullable|string',
-            'nationality' => 'nullable|string'
+            'nationality' => 'nullable|string',
+            'books' => 'nullable|numeric'
         ];
     }
 }

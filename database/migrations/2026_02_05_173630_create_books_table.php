@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('available_copies')->default(1);
             $table->string('cover_image')->nullable();
             $table->decimal('price', 8, 2)->nullable();
-            $table->enum('status', ['active', 'inative'])->default('active');
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
 
             //index -> performance
