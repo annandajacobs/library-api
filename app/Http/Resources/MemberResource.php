@@ -20,7 +20,7 @@ class MemberResource extends JsonResource
             'email' => $this->email,
             'phone' => $this->phone,
             'address' => $this->address,
-            'membership_date' => $this->membership_date,
+            'memebership_date' => $this->membership_date,
             'status' => $this->status,
             'active_borrowings_count' => $this->when(
                 $this->relationLoaded('activeBorrowings'),

@@ -16,7 +16,7 @@ class Member extends Model
         'email',
         'phone',
         'address',
-        'membership_date',
+        'memebership_date',
         'status'
     ];
 
