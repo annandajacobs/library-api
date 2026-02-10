@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateMemberRequest;
 use App\Http\Resources\MemberResource;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class MemberController extends Controller
 {
@@ -68,18 +69,25 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Member $member)
+    public function destroy(string $id)
     {
-        if ($member->activeBorrowings()->count() > 0) {
+        try {
+            $member = Member::findOrFail($id);
+
+            if ($member->activeBorrowings()->count() > 0) {
+                return response()->json([
+                    'message' => 'Cannot delete member with active borrowings'
+                ], 422);
+            }
+            $member->delete();
+
             return response()->json([
-                'message' => 'Cannot delete member with active borrowings'
-            ], 422);
+                'message' => 'Member deleted with success',
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'No data found!',
+            ]);
         }
-
-        $member->delete();
-
-        return response()->json([
-            'message' => 'Member deleted with success',
-        ]);
     }
 }

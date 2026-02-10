@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('borrowings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('book_id')->constrained('books')->cascadeOnDelete();
-            $table->foreignId('memeber_id')->constrained('members')->cascadeOnDelete();
+            $table->foreignId('member_id')->constrained('members')->cascadeOnDelete();
             $table->date('borrowed_date');
             $table->date('due_date');
             $table->date('returned_date')->nullable();
@@ -23,7 +23,7 @@ return new class extends Migration
 
             // index
             $table->index(['member_id', 'status']);
-            $table->index('due_table');
+            $table->index('due_date');
         });
     }
 

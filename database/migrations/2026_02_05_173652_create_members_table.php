@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique;
-            $table->integer('phone')->unique;
+            $table->string('email')->unique();
+            $table->integer('phone')->unique();
             $table->text('address')->nullable();
-            $table->date('memebership_date');
+            $table->date('membership_date');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });

@@ -3,9 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class StoreMemberRequest extends FormRequest
+class StoreBorrowingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +22,11 @@ class StoreMemberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:members,email',
-            'phone' => 'nullable|string',
-            'address' => 'nullable|string',
-            'membership_date' => 'date',
-            'status' => 'required'
+            'book_id' => 'required|exists:books,id',
+            'member_id' => 'required|exists:members,id',
+            'borrowed_date' => 'required|date',
+            'due_date' => 'required|date|after:borrowed_date',
+            'status' => 'required' 
         ];
     }
 }

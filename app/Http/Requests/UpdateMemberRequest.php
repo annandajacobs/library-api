@@ -31,7 +31,7 @@ class UpdateMemberRequest extends FormRequest
             ],
             'phone' => 'nullable|string',
             'address' => 'nullable|string',
-            'memebership_date' => 'date',
+            'membership_date' => 'date',
             'status' => 'required'
         ];
     }

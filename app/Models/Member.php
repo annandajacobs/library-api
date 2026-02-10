@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Borrowing;
 
 class Member extends Model
 {
@@ -16,7 +17,7 @@ class Member extends Model
         'email',
         'phone',
         'address',
-        'memebership_date',
+        'membership_date',
         'status'
     ];
 

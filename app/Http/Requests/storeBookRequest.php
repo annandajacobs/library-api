@@ -30,6 +30,7 @@ class storeBookRequest extends FormRequest
             'genre' => 'nullable|string',
             'publushed_at' => 'nullable|date',
             'total_copies' => 'required|integer|min:1',
+            'available_copies' => 'required|integer|min:1',
             'price' => 'nullable|numeric|min:0',
             'cover_image' => 'nullable|string',
         ];
